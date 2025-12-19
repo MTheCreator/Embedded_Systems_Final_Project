@@ -56,7 +56,7 @@ To see the whole video, please check this link
 ---
 
 ### 6. Simulation of the uav in Webots
-![Webot Preview](uav.gif)
+![Webot Preview](UAV.gif)
 
 Please check this link to see the video
 **File:** [Webot_Video](https://drive.google.com/file/d/1X-fMxYNV5VXABhhl7ztX1HJuES2CKfz8/view?usp=sharing)
