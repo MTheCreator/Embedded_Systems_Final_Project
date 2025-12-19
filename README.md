@@ -49,6 +49,7 @@ H∞ robust control implementation based on research paper "Nonlinear optimal co
 
 ## Demos
 ![Paper Control](project_demos/demo_speed.gif)
+![Webot Simulation](project_demos/UAV.gif)
 ![RL Hovering](project_demos/RL_Hovering_no_obstacle.gif)
 ![MPC Simulation](project_demos/MPC_gif_drone.gif)
 
@@ -57,7 +58,7 @@ H∞ robust control implementation based on research paper "Nonlinear optimal co
 ## Documentation
 
 - **Full Report:** [General_Report.pdf](General_Report.pdf)
-- **Research Paper:** [Paper_Implementation/](Paper_Implementation/Nonlinear optimal control for UAVs with tilting rotors.pdf)
+- **Research Paper:** [Paper.pdf](Paper_Visualization/Nonlinear_optimal_control_for_UAVs_with_tilting_rotors.pdf)
 - **Interactive Notebook:** [Paper_Implementation.ipynb](Paper_Implementation/Paper_Implementation.ipynb)
 
 ## Dependencies
