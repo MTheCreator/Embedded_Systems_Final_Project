@@ -44,19 +44,21 @@ Model Predictive Control (MPC) simulation of quadrotor flight dynamics.
 
 ---
 
-### 5. Speed Control Demo (Paper Visualization)
+### 5. Paper Control Demo 
 
 Paper visualization demonstration showing the robot's speed control capabilities.
 
-<video src="../Paper_Visualization/demo_speed.mp4" width="640" controls></video>
+![Paper Control Preview](demo_speed.gif)
 
+To see the whole video, please check this link
 **File:** [demo_speed.mp4](../Paper_Visualization/demo_speed.mp4)
 
 ---
 
-### 6. Webots Simulation Demo
-*(Coming soon - video not yet uploaded)*
+### 6. Simulation of the uav in Webots
+![Webot Preview](uav.gif)
 
-Demonstration of the robot simulation in Webots environment.
+Please check this link to see the video
+**File:** [Webot_Video](https://drive.google.com/file/d/1X-fMxYNV5VXABhhl7ztX1HJuES2CKfz8/view?usp=sharing)
 
-**File:** TBD
+
