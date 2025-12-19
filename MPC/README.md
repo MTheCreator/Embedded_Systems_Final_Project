@@ -206,6 +206,11 @@ The animation displays:
 * **Left panels**: Time-series plots of position, velocity, attitude, and control inputs
 * **Right panel**: 3D visualization of quadrotor trajectory with predicted path
 
+### Demo
+Here's the MPC controller in action:
+
+![gif_drone](gif_drone.gif)
+*Figure: Real-time visualization showing quadrotor trajectory tracking with MPC. Left panels display state and control signals, right panel shows 3D trajectory.*
 ## 🔬 How It Works
 
 1. **MPC Loop:**
