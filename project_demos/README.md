@@ -51,7 +51,7 @@ Paper visualization demonstration showing the robot's speed control capabilities
 ![Paper Control Preview](demo_speed.gif)
 
 To see the whole video, please check this link
-**File:** [demo_speed.mp4](../Paper_Visualization/demo_speed.mp4)
+**File:** [demo_speed_cropped.mp4](../Paper_Visualization/demo_speed_cropped.mp4)
 
 ---
 
