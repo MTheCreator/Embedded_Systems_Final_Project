@@ -45,7 +45,8 @@ class Critic(nn.Module):
         return self.net(x)
 
 class DDPGAgent:
-    def __init__(self, state_dim, action_dim, max_action=1.0):
+    def __init__(self, state_dim, action_dim, max_action=1.0, 
+                 use_hover_bias=False, hover_bias_decay=0.9995):
         self.device = "cuda" if torch.cuda.is_available() else "cpu"
         print(f"ðŸ–¥ï¸  Using device: {self.device}")
         
@@ -74,7 +75,11 @@ class DDPGAgent:
         
         self.action_dim = action_dim
         self.max_action = max_action
-        
+        # Hover bias system (optional training wheels)
+        self.use_hover_bias = use_hover_bias
+        self.hover_bias_weight = 0.3 if use_hover_bias else 0.0
+        self.hover_bias_decay = hover_bias_decay
+        self.hover_bias_min = 0.0
         print(f"ðŸ“Š State dim: {state_dim}, Action dim: {action_dim}")
         print("ðŸŽ¯ Using DDPG (continuous control)")
     
@@ -89,11 +94,11 @@ class DDPGAgent:
             noise = np.random.normal(0, self.noise_std, size=self.action_dim)
             action = np.clip(action + noise, 0, self.max_action)
         
-        # Add hover bias (helps drone learn to stay airborne initially)
-        # Gradually reduce this bias as training progresses
-        hover_thrust = 0.6  # ~60% thrust to counteract gravity
-        action = action * 0.7 + hover_thrust * 0.3  # Blend with hover
-        action = np.clip(action, 0, self.max_action)
+        # Optional hover bias - helps early training but should decay
+        if self.hover_bias_weight > self.hover_bias_min:
+            hover_thrust = 0.6
+            action = action * (1.0 - self.hover_bias_weight) + hover_thrust * self.hover_bias_weight
+            self.hover_bias_weight *= self.hover_bias_decay
         
         return action
     
@@ -159,7 +164,8 @@ class DDPGAgent:
             'critic_target': self.critic_target.state_dict(),
             'actor_optimizer': self.actor_optimizer.state_dict(),
             'critic_optimizer': self.critic_optimizer.state_dict(),
-            'noise_std': self.noise_std
+            'noise_std': self.noise_std,
+            'hover_bias_weight': self.hover_bias_weight
         }, path)
         print(f"ðŸ’¾ DDPG model saved to {path}")
     
@@ -173,4 +179,5 @@ class DDPGAgent:
         self.actor_optimizer.load_state_dict(checkpoint['actor_optimizer'])
         self.critic_optimizer.load_state_dict(checkpoint['critic_optimizer'])
         self.noise_std = checkpoint.get('noise_std', 0.0)
+        self.hover_bias_weight = checkpoint.get('hover_bias_weight', 0.0)
         print(f"ðŸ“‚ DDPG model loaded from {path}")
