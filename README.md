@@ -6,7 +6,7 @@ Multiple control strategies for quadrotor UAVs: Model Predictive Control (MPC), 
 
 ```
 ├── MPC/                    # Model Predictive Control
-├── RL_DDPG/               # Reinforcement Learning (DDPG)
+├── RL/               # Reinforcement Learning that contains the DDPG algorithm and the LTL specifications but only mind the DDPG algorithm since the LTL specifications will be explained in the other repository (LTL)
 ├── Paper_Visualization/   # Tilt-rotor UAV H∞ control
 ├── Paper_Implementation/  # Research paper & notebook
 ├── project_demos/         # Demo videos and GIFs
@@ -23,7 +23,7 @@ python3 run_mpc.py
 
 **RL:**
 ```bash
-cd RL_DDPG
+cd RL/RL_DDPG
 python main_no_pybullet.py
 ```
 
@@ -41,7 +41,7 @@ Optimal control using constrained optimization with CasADi and IPOPT solver.
 
 ### RL (DDPG)
 Learning-based control with obstacle avoidance using Deep Deterministic Policy Gradient.
-[Documentation](RL_DDPG/README.md)
+[Documentation](RL/RL_DDPG/README.md)
 
 ### Tilt-Rotor Control
 H∞ robust control implementation based on research paper "Nonlinear optimal control for UAVs with tilting rotors".
